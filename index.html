@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf App</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <script defer src="script.js"></script> 
+</head>
+
+<body>
+    <header>
+        <h1>Lit Notes Apps</h1>
+        <p>Mudah mengelola buku dengan Lit Notes Apps. Ayo, coba sekarang!</p>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="profile-card">
+                <img src="foto/avatar.jpeg" alt="Avatar" class="avatar">
+                <h2 class="profile-name">Agnan Toro</h2>
+                <p class="profile-job">Programmer</p>
+                <div class="book-count">
+                    JUMLAH BUKU: <span id="bookCount">0</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="icon-navigation">
+            <div class="my-container icons">
+                <div class="my-icon" id="completedBooks">
+                    <div class="read-icon">
+                        <i class="fas fa-book-open"></i> <!-- Ikon "book-open" -->
+                    </div>
+                    <h5>Dibaca</h5>
+                </div>
+                <div class="my-icon" id="incompleteBooks">
+                    <div class="unread-icon">
+                        <i class="fas fa-book"></i> <!-- Ikon "book" -->
+                    </div>
+                    <h5>Belum Dibaca</h5>
+                </div>
+                <div class="my-icon" id="addBook">
+                    <div class="add-book">
+                        <i class="fas fa-plus"></i> <!-- Ikon "plus" -->
+                    </div>
+                    <h5>Tambah Buku</h5>
+                </div>
+            </div>
+        </section>
+
+        <section class="add-book-section">
+            <h2>Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+                <div>
+                    <label for="bookFormTitle">Judul</label>
+                    <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+                </div>
+                <div>
+                    <label for="bookFormAuthor">Penulis</label>
+                    <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+                </div>
+                <div>
+                    <label for="bookFormYear">Tahun</label>
+                    <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
+                </div>
+                <div>
+                    <label for="bookFormIsComplete">Selesai dibaca</label>
+                    <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+                </div>
+                <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+                    Masukkan Buku Ke Rak <span>Belum Selesai Dibaca</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="search-section">
+            <h2>Cari Buku</h2>
+            <form id="searchBook" data-testid="searchBookForm">
+                <label for="searchBookTitle">Judul</label>
+                <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+                <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
+                    Cari
+                </button>
+            </form>
+        </section>
+
+        <section class="book-list-section">
+            <h2>Belum selesai dibaca</h2>
+            <div id="incompleteBookList" data-testid="incompleteBookList"></div>
+        </section>
+
+        <section class="book-list-section">
+            <h2>Selesai dibaca</h2>
+            <div id="completeBookList" data-testid="completeBookList"></div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const completedBooksIcon = document.getElementById('completedBooks');
+            const incompleteBooksIcon = document.getElementById('incompleteBooks');
+            const addBookIcon = document.getElementById('addBook');
+
+            // Navigasi ke halaman selesai dibaca
+            completedBooksIcon.addEventListener('click', function () {
+                window.location.href = 'completed.html';
+            });
+
+            // Navigasi ke halaman belum dibaca
+            incompleteBooksIcon.addEventListener('click', function () {
+                window.location.href = 'incomplete.html';
+            });
+
+            // Navigasi ke halaman tambah buku
+            addBookIcon.addEventListener('click', function () {
+                window.location.href = 'add-book.html';
+            });
+        });
+    </script>
+</body>
+
+</html>
