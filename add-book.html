@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Buku</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Pastikan link CSS benar -->
+</head>
+<body>
+    <header>
+        <h1>Tambah Buku Baru</h1>
+    </header>
+    <main>
+        <section class="add-book-section">
+            <h2>Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+                <div>
+                    <label for="bookFormTitle">Judul</label>
+                    <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+                </div>
+                <div>
+                    <label for="bookFormAuthor">Penulis</label>
+                    <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+                </div>
+                <div>
+                    <label for="bookFormYear">Tahun</label>
+                    <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
+                </div>
+                <div>
+                    <label for="bookFormIsComplete">Selesai dibaca</label>
+                    <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+                </div>
+                <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+                    Masukkan Buku Ke Rak <span>Belum Selesai Dibaca</span>
+                </button>
+            </form>
+        </section>
+         <!-- Tombol kembali -->
+         <div class="back-button-container">
+            <button onclick="window.location.href='index.html'" id="backButton" class="back-button">
+                Kembali
+            </button>
+        </div>
+    </main>
+    <script src="script.js"></script> <!-- Link ke file JavaScript -->
+</body>
+</html>

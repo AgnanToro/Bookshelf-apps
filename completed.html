@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Buku Selesai Dibaca</title>
+</head>
+<body>
+    <header>
+        <h1>Buku Selesai Dibaca</h1>
+    </header>
+    <main>
+        <section class="book-list-section">
+            <h2>Daftar Buku Selesai Dibaca</h2>
+            <div id="completeBookList" data-testid="completeBookList"></div>
+        </section>
+        <div class="back-button-container">
+            <button onclick="window.location.href='index.html'" id="backButton" class="back-button">
+                Kembali
+            </button>
+        </div>
+    </main>
+
+    <!-- Memasukkan script utama -->
+    <script src="script.js"></script>
+    <script>
+        // Memastikan DOM telah dimuat dan berfungsi
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cek apakah localStorage ada
+            if (isStorageExist()) {
+                // Memuat buku dari localStorage
+                loadBooksFromStorage();
+                
+                // Pastikan elemen completeBookList ada sebelum render
+                const completeBookList = document.getElementById('completeBookList');
+                if (completeBookList) {
+                    renderCompleteBooks(); // Render buku yang sudah selesai dibaca
+                }
+            }
+        });
+    </script>
+</body>
+</html>
